@@ -1,0 +1,30 @@
+name: Automated Preprocessing
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  preprocess:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.12.7'
+
+      - name: Install dependencies
+        run: pip install pandas scikit-learn
+
+      - name: Run preprocessing
+        run: python preprocessing/automate_NamaAnda.py
+
+      - name: Commit hasil preprocessing
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git add preprocessing/namadataset_preprocessing/
+          git commit -m "Auto: update preprocessed dataset" || echo "No changes"
+          git push
