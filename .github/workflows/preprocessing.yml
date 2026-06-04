@@ -8,6 +8,7 @@ on:
 jobs:
   preprocess:
     runs-on: ubuntu-latest
+<<<<<<< HEAD
 
     steps:
       - name: Checkout repository
@@ -15,10 +16,17 @@ jobs:
 
       - name: Setup Python 3.12
         uses: actions/setup-python@v4
+=======
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+>>>>>>> 31003dd33006a67d8481db90c21080538bdb23ed
         with:
           python-version: '3.12.7'
 
       - name: Install dependencies
+<<<<<<< HEAD
         run: |
           pip install pandas scikit-learn numpy
 
@@ -27,9 +35,22 @@ jobs:
           python preprocessing/automate_AriasyahRamadhan.py
 
       - name: Commit dan push hasil preprocessing
+=======
+        run: pip install pandas scikit-learn
+
+      - name: Run preprocessing
+        run: python preprocessing/automate_NamaAnda.py
+
+      - name: Commit hasil preprocessing
+>>>>>>> 31003dd33006a67d8481db90c21080538bdb23ed
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
           git add preprocessing/namadataset_preprocessing/
+<<<<<<< HEAD
           git commit -m "Auto: update preprocessed dataset [skip ci]" || echo "No changes to commit"
           git push
+=======
+          git commit -m "Auto: update preprocessed dataset" || echo "No changes"
+          git push
+>>>>>>> 31003dd33006a67d8481db90c21080538bdb23ed
