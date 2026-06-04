@@ -141,6 +141,6 @@ def run_preprocessing(input_path, output_dir):
 
 if __name__ == "__main__":
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    INPUT  = os.path.join(BASE_DIR, '..', 'namadataset_raw', 'titanic.csv')
-    OUTPUT = os.path.join(BASE_DIR, 'namadataset_preprocessing')
+    INPUT  = os.path.join(BASE_DIR, '..', 'titanic_raw', 'titanic.csv')
+    OUTPUT = os.path.join(BASE_DIR, 'titanic_preprocessing')
     run_preprocessing(INPUT, OUTPUT)

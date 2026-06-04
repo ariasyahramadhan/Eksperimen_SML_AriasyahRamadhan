@@ -29,6 +29,6 @@ jobs:
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
-          git add preprocessing/namadataset_preprocessing/
+          git add preprocessing/titanic_preprocessing/
           git commit -m "Auto: update preprocessed dataset [skip ci]" || echo "No changes to commit"
           git push
